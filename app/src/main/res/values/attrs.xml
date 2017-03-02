@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="test" format="string" />
+
+    <declare-styleable name="VolumeTest">
+        <attr name="test_height" format="dimension" />
+        <attr name="test_width" format="dimension" />
+        <attr name="test_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TestView">
+        <attr name="testview_height" format="dimension" />
+        <attr name="testview_width" format="dimension" />
+        <attr name="testview_bg" format="color" />
+    </declare-styleable>
+
+</resources>
