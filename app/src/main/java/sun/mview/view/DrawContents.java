@@ -61,43 +61,99 @@ public class DrawContents extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
+        Log.i(TAG, "------DrawContents------onMeasure");
 
         int mode_width, size_width, mode_height, size_height;
         mode_width = MeasureSpec.getMode(widthMeasureSpec);
         size_width = MeasureSpec.getSize(widthMeasureSpec);
+
         mode_height = MeasureSpec.getMode(heightMeasureSpec);
         size_height = MeasureSpec.getSize(heightMeasureSpec);
 
         if (mode_width == MeasureSpec.AT_MOST) {
+
+            int widthByImg = -1;
+            int widthByText = -1;
+            if (img != null) {
+                widthByImg = getPaddingLeft() + getPaddingRight() + img.getWidth();
+                Log.i(TAG, "widthByImg:" + widthByImg);
+            }
+            if (textRect != null) {
+                widthByText = getPaddingLeft() + getPaddingRight() + textRect.width();
+                Log.i(TAG, "widthByText:" + widthByText);
+            }
+            int max = Math.max(widthByImg, widthByText);
+            realWidth = max != -1 ? Math.min(size_width, max) : size_width;
+
         } else {
             realWidth = size_width;
         }
 
         if (mode_height == MeasureSpec.AT_MOST) {
-
+            int heightSum = 0;
+            if (img != null) {
+                heightSum += getPaddingTop() + getPaddingBottom() + img.getHeight();
+                Log.i(TAG, "heightSum:" + heightSum);
+            }
+            if (textRect != null) {
+                heightSum += getPaddingTop() + getPaddingBottom() + textRect.height();
+                Log.i(TAG, "heightSum:" + heightSum);
+            }
+            realHeight = heightSum != 0 ? heightSum : size_height;
         } else {
             realHeight = size_height;
         }
 
+        Log.i(TAG, "realWidth:" + realWidth + "  realHeight:" + realHeight);
         setMeasuredDimension(realWidth, realHeight);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        /*画边界线*/
+        paint.reset();
+        paint.setStrokeWidth(4);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(Color.RED);
+        canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), paint);
+
+        rect.left = getPaddingLeft();
+        rect.right = realWidth - getPaddingRight();
+        rect.top = getPaddingTop();
+        rect.bottom = realHeight - getPaddingBottom();
+
+        /*绘图*/
+        if (img != null) {
+            paint.reset();
+        }
+
+        /*写字*/
+        if (text != null) {
+            paint.reset();
+            paint.setStrokeWidth(4);
+            paint.setStyle(Paint.Style.FILL);
+            paint.setTextAlign(Paint.Align.LEFT);
+            paint.setTextSize(textSize);
+            paint.setColor(textColor);
+            canvas.drawText(text, 100, realHeight - getPaddingBottom(), paint);
+        }
     }
 
     private void init() {
         paint = new Paint();
-        img = BitmapFactory.decodeResource(getResources(), imgSrc);
-        Log.i(TAG, "" + (img == null));
-
         rect = new Rect();
-        textRect = new Rect();
 
-        paint.reset();
-//        paint.setTextSize(TextUtils.);
+
+        if (imgSrc != -1) {
+            img = BitmapFactory.decodeResource(getResources(), imgSrc);
+        }
+        if (text != null) {
+            textRect = new Rect();
+            paint.reset();
+            paint.setTextSize(textSize);
+            paint.getTextBounds(text, 0, text.length(), textRect);
+        }
     }
 
     private void getAttrs(Context context, @Nullable AttributeSet attrs) {
@@ -128,7 +184,7 @@ public class DrawContents extends View {
                     Log.i(TAG, "content: " + (text == null) + "  " + text);
                     break;
                 case R.styleable.DrawContents_testview_textcolor:
-                    bgColor = array.getColor(type, Color.parseColor("#000000"));
+                    textColor = array.getColor(type, Color.parseColor("#000000"));
                     Log.i(TAG, "textColor:" + textColor);
                     break;
                 case R.styleable.DrawContents_testview_textsize:
