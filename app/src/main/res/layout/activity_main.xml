@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:testview_height="50dp"
-        app:testview_pic="@drawable/ic_launcher"
+        app:testview_pic="@mipmap/ic_launcher"
         app:testview_text="view2"
         app:testview_textcolor="#ff00ff"
         app:testview_textsize="20sp"
@@ -37,9 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:testview_height="100dp"
-        app:testview_pic="@drawable/ic_launcher"
-        app:testview_text="view3view3view3view3view3"
-        app:testview_textcolor="#ffff00"
+        app:testview_pic="@mipmap/ic_launcher"
+        app:testview_text="view3view3view3view3"
+        app:testview_textcolor="#009900"
         app:testview_textsize="22sp"
         app:testview_width="100dp" />
 

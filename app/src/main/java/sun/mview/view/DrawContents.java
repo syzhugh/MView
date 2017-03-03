@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -126,6 +127,11 @@ public class DrawContents extends View {
         /*绘图*/
         if (img != null) {
             paint.reset();
+            int left = (getMeasuredWidth() - img.getWidth()) / 2;
+            int right = (getMeasuredWidth() + img.getWidth()) / 2;
+            int top = (getMeasuredHeight() - (text == null ? 0 : textRect.height())) / 2 - img.getHeight() / 2;
+            int bottom = (getMeasuredHeight() - (text == null ? 0 : textRect.height())) / 2 + img.getHeight() / 2;
+            canvas.drawBitmap(img, null, new Rect(left, top, right, bottom), paint);
         }
 
         /*写字*/
@@ -136,14 +142,18 @@ public class DrawContents extends View {
             paint.setTextAlign(Paint.Align.LEFT);
             paint.setTextSize(textSize);
             paint.setColor(textColor);
-            canvas.drawText(text, 100, realHeight - getPaddingBottom(), paint);
+
+            TextPaint textPaint = new TextPaint(paint);
+            String msg = TextUtils.ellipsize(text, textPaint, (float) realWidth - 15,
+                    TextUtils.TruncateAt.MARQUEE).toString();
+
+            canvas.drawText(msg, 0, realHeight - getPaddingBottom(), textPaint);
         }
     }
 
     private void init() {
         paint = new Paint();
         rect = new Rect();
-
 
         if (imgSrc != -1) {
             img = BitmapFactory.decodeResource(getResources(), imgSrc);
