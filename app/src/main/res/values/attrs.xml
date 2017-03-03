@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="test" format="string" />
+    <!--test demo-->
+    <attr name="testview_height" format="dimension" />
+    <attr name="testview_width" format="dimension" />
+    <attr name="testview_bg" format="color" />
 
+
+    <declare-styleable name="TestView">
+        <attr name="testview_height" />
+        <attr name="testview_width" />
+        <attr name="testview_bg" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawContents">
+        <attr name="testview_height" />
+        <attr name="testview_width" />
+        <attr name="testview_bg" />
+        <attr name="testview_pic" format="reference" />
+        <attr name="testview_text" format="string" />
+        <attr name="testview_textcolor" format="color" />
+        <attr name="testview_textsize" format="dimension" />
+    </declare-styleable>
+
+    <!--sample-->
     <declare-styleable name="VolumeTest">
         <attr name="test_height" format="dimension" />
         <attr name="test_width" format="dimension" />
         <attr name="test_color" format="color" />
-    </declare-styleable>
-
-    <declare-styleable name="TestView">
-        <attr name="testview_height" format="dimension" />
-        <attr name="testview_width" format="dimension" />
-        <attr name="testview_bg" format="color" />
     </declare-styleable>
 
 </resources>

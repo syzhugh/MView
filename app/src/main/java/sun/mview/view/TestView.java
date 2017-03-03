@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import sun.mview.R;
 
@@ -16,7 +15,6 @@ import sun.mview.R;
 
 public class TestView extends View {
     private static final String TAG = "Test";
-
 
     private int height, width;
 
@@ -40,15 +38,15 @@ public class TestView extends View {
             switch (type) {
                 case R.styleable.TestView_testview_height:
                     Log.i(TAG, "testview_height:");
-                    Log.i(TAG, ":" + array.getDimension(i, -1));
+                    Log.i(TAG, ":" + array.getDimension(type, -1));
                     break;
                 case R.styleable.TestView_testview_width:
                     Log.i(TAG, "testview_width:");
-                    Log.i(TAG, ":" + array.getDimension(i, -1));
+                    Log.i(TAG, ":" + array.getDimension(type, -1));
                     break;
                 case R.styleable.TestView_testview_bg:
                     Log.i(TAG, "testview_bg:");
-                    Log.i(TAG, ":" + array.getColor(i, -1));
+                    Log.i(TAG, ":" + array.getColor(type, -1));
                     break;
             }
         }
@@ -57,10 +55,46 @@ public class TestView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         Log.i(TAG, "------TestView------onMeasure");
         Log.i(TAG, "widthMeasureSpec:" + Integer.toBinaryString(widthMeasureSpec));
         Log.i(TAG, "heightMeasureSpec:" + Integer.toBinaryString(heightMeasureSpec));
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        Log.i(TAG, "widthMode:" + Integer.toBinaryString(widthMode));
+        Log.i(TAG, "widthSize:" + widthSize);
+        Log.i(TAG, "heightMode:" + Integer.toBinaryString(heightMode));
+        Log.i(TAG, "heightSize:" + heightSize);
+
+        int desiredWidth, desiredHeight;
+
+        if (widthMode == MeasureSpec.AT_MOST) {
+            Log.i(TAG, "width  AT_MOST");
+            desiredWidth = 50;
+        } else if (widthMode == MeasureSpec.EXACTLY) {
+            Log.i(TAG, "width  EXACTLY");
+            desiredWidth = widthSize;
+        } else {
+            desiredWidth = widthSize;
+        }
+
+
+        if (heightMode == MeasureSpec.AT_MOST) {
+            Log.i(TAG, "height  AT_MOST");
+            desiredHeight = 50;
+        } else if (heightMode == MeasureSpec.EXACTLY) {
+            Log.i(TAG, "height  EXACTLY");
+            desiredHeight = heightSize;
+        } else {
+            desiredHeight = heightSize;
+        }
+
+        setMeasuredDimension(desiredWidth, desiredHeight);
     }
 
     @Override

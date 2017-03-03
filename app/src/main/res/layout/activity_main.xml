@@ -6,10 +6,41 @@
     android:orientation="vertical">
 
     <sun.mview.view.TestView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#00dd00"
+        android:visibility="gone"
         app:testview_bg="#00dd00"
         app:testview_height="500dp"
         app:testview_width="500dp" />
+
+    <sun.mview.view.DrawContents
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:testview_height="25dp"
+        app:testview_text="view1"
+        app:testview_textcolor="#00ffff"
+        app:testview_textsize="18sp"
+        app:testview_width="25dp" />
+
+    <sun.mview.view.DrawContents
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:testview_height="50dp"
+        app:testview_pic="@drawable/ic_launcher"
+        app:testview_text="view2"
+        app:testview_textcolor="#ff00ff"
+        app:testview_textsize="20sp"
+        app:testview_width="50dp" />
+
+    <sun.mview.view.DrawContents
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:testview_height="100dp"
+        app:testview_pic="@drawable/ic_launcher"
+        app:testview_text="view3view3view3view3view3"
+        app:testview_textcolor="#ffff00"
+        app:testview_textsize="22sp"
+        app:testview_width="100dp" />
+
 </LinearLayout>

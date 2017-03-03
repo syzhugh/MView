@@ -1,4 +1,4 @@
-package sun.mview.view;
+package sun.mview.view.sample;
 
 import android.content.Context;
 import android.graphics.Canvas;
