@@ -43,4 +43,33 @@
         app:testview_textsize="22sp"
         app:testview_width="100dp" />
 
+    <sun.mview.viewgroup.TestViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:background="#ff00ff" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="20dp"
+            android:background="#0000ff" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#00ff00" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="#ff0000" />
+
+    </sun.mview.viewgroup.TestViewGroup>
+
 </LinearLayout>
