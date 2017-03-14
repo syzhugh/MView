@@ -1,4 +1,4 @@
-package sun.mview.samples;
+package sun.mview.view.samples;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -122,9 +122,6 @@ public class VolumeTest extends View {
                 getWidth() * temp,
                 rectFPic.bottom + getHeight() * 0.15f, paint);
         paint.setXfermode(null);
-
-
-
     }
 
     private float progress = 0;

@@ -1,4 +1,4 @@
-package sun.mview.paint;
+package sun.mview.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -67,9 +67,9 @@ public class TestPaint extends View {
 //        drawOval(canvas);
 //        drawArc(canvas);
 
-        drawPath(canvas);
-        drawImg(canvas);
-        drawText(canvas);
+//        drawPath(canvas);
+//        drawImg(canvas);
+//        drawText(canvas);
     }
 
 
@@ -120,7 +120,12 @@ public class TestPaint extends View {
 
 
     private void drawTri(Canvas canvas) {
-
+        Path triPath = new Path();
+        triPath.moveTo(100, 100);
+        triPath.lineTo(100, 200);
+        triPath.lineTo(500, 200);
+        triPath.close();
+        canvas.drawPath(triPath, paint);
     }
 
 
@@ -176,14 +181,42 @@ public class TestPaint extends View {
 
     /*特殊*/
     private void drawPath(Canvas canvas) {
+        paint.setStrokeWidth(5);
+        paint.setStyle(Paint.Style.STROKE);
         Path path = new Path();
+        path.moveTo(50, 50);
+        path.lineTo(50, 150);
+        path.lineTo(150, 150);
+        path.lineTo(200, 200);//坐标相对于起点
+//        path.rLineTo(200, 200);//坐标相对于上条线的终点
+
+
+        //坐标会发生跳转
+        path.addRect(300, 300, 400, 400, Path.Direction.CW);
+        path.lineTo(50, 500);
+
+        path.addArc(100, 100, 200, 200, 0, 270);
+        path.lineTo(50, 500);
+
+        path.arcTo(500, 500, 600, 700, 0, 270, false);//可以添加一条连接线
+        path.lineTo(50, 500);
+
+        //发生相对位移
+        path.rMoveTo(50, 50);//相对于上一段的终点
+        path.lineTo(0, 900);//取原始坐标下的点
+//        path.rLineTo(50, 50);
+        canvas.drawPath(path, paint);
+
+        paint.setColor(Color.GREEN);
+        Path path1 = new Path();
+        path1.addPath(path, 300, 100);
+        canvas.drawPath(path1, paint);
+
     }
 
     private void drawImg(Canvas canvas) {
-
     }
 
     private void drawText(Canvas canvas) {
-
     }
 }

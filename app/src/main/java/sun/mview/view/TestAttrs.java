@@ -13,20 +13,20 @@ import sun.mview.R;
  * Created by Yaozong on 2017/3/2.
  */
 
-public class TestView extends View {
+public class TestAttrs extends View {
     private static final String TAG = "Test";
 
     private int height, width;
 
-    public TestView(Context context) {
+    public TestAttrs(Context context) {
         this(context, null);
     }
 
-    public TestView(Context context, AttributeSet attrs) {
+    public TestAttrs(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TestView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TestAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 //        context.getTheme().obtainStyledAttributes(attrs, R.styleable.TestView, defStyleAttr, 0);
         TypedArray array = context.getResources().obtainAttributes(attrs, R.styleable.TestView);

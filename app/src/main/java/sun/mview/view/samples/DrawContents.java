@@ -1,4 +1,4 @@
-package sun.mview.view;
+package sun.mview.view.samples;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -25,7 +25,6 @@ import sun.mview.R;
 public class DrawContents extends View {
 
     private static final String TAG = "DrawContents";
-
 
     private int realWidth, realHeight;
 

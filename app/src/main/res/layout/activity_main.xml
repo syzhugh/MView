@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <sun.mview.paint.TestPaint
+    <sun.mview.view.TestPaint
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00ff00" />
@@ -19,7 +19,7 @@
         app:testview_height="500dp"
         app:testview_width="500dp" />
 
-    <sun.mview.view.DrawContents
+    <sun.mview.view.samples.DrawContents
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -29,7 +29,7 @@
         app:testview_textsize="18sp"
         app:testview_width="25dp" />
 
-    <sun.mview.view.DrawContents
+    <sun.mview.view.samples.DrawContents
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -40,7 +40,7 @@
         app:testview_textsize="20sp"
         app:testview_width="50dp" />
 
-    <sun.mview.view.DrawContents
+    <sun.mview.view.samples.DrawContents
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
