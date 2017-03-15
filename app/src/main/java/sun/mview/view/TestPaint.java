@@ -118,7 +118,6 @@ public class TestPaint extends View {
 //        canvas.drawLines(pts, 2, 8, paint);//起点会发生变化
     }
 
-
     private void drawTri(Canvas canvas) {
         Path triPath = new Path();
         triPath.moveTo(100, 100);
@@ -127,7 +126,6 @@ public class TestPaint extends View {
         triPath.close();
         canvas.drawPath(triPath, paint);
     }
-
 
     private void drawRect(Canvas canvas) {
         Rect rect = new Rect(100, 100, 200, 200);
@@ -189,7 +187,6 @@ public class TestPaint extends View {
         path.lineTo(150, 150);
         path.lineTo(200, 200);//坐标相对于起点
 //        path.rLineTo(200, 200);//坐标相对于上条线的终点
-
 
         //坐标会发生跳转
         path.addRect(300, 300, 400, 400, Path.Direction.CW);

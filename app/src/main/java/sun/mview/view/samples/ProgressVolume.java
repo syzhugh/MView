@@ -21,7 +21,7 @@ import sun.mview.R;
  * Created by Yaozong on 2016/10/5.
  */
 
-public class VolumeTest extends View {
+public class ProgressVolume extends View {
 
     private int color;
     private int width;
@@ -32,15 +32,15 @@ public class VolumeTest extends View {
     private Paint paint;
 
 
-    public VolumeTest(Context context) {
+    public ProgressVolume(Context context) {
         this(context, null);
     }
 
-    public VolumeTest(Context context, AttributeSet attrs) {
+    public ProgressVolume(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public VolumeTest(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ProgressVolume(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         TypedArray array = context.getTheme().obtainStyledAttributes(attrs, R.styleable.VolumeTest, defStyleAttr, 0);

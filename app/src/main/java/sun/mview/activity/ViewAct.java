@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import sun.mview.R;
 
-public class ViewActivity extends AppCompatActivity {
+public class ViewAct extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

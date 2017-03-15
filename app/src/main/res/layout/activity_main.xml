@@ -1,84 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <sun.mview.view.TestPaint
+    <sun.mview.view.TestText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#00ff00" />
+        android:layout_height="match_parent"/>
 
-    <sun.mview.view.TestView
+    <Button
+        android:id="@+id/main_paint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#00dd00"
-        android:visibility="gone"
-        app:testview_bg="#00dd00"
-        app:testview_height="500dp"
-        app:testview_width="500dp" />
+        android:layout_gravity="center_horizontal"
+        android:text="paint"
+        />
 
-    <sun.mview.view.samples.DrawContents
+    <Button
+        android:id="@+id/main_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:testview_height="25dp"
-        app:testview_text="view1"
-        app:testview_textcolor="#00ffff"
-        app:testview_textsize="18sp"
-        app:testview_width="25dp" />
+        android:layout_gravity="center_horizontal"
+        android:text="view"
+        />
 
-    <sun.mview.view.samples.DrawContents
+    <Button
+        android:id="@+id/main_viewgroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:testview_height="50dp"
-        app:testview_pic="@mipmap/ic_launcher"
-        app:testview_text="view2"
-        app:testview_textcolor="#ff00ff"
-        app:testview_textsize="20sp"
-        app:testview_width="50dp" />
+        android:layout_gravity="center_horizontal"
+        android:text="viewgroup"
+        />
 
-    <sun.mview.view.samples.DrawContents
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:testview_height="100dp"
-        app:testview_pic="@mipmap/ic_launcher"
-        app:testview_text="view3view3view3view3"
-        app:testview_textcolor="#009900"
-        app:testview_textsize="22sp"
-        app:testview_width="100dp" />
-
-    <sun.mview.viewgroup.TestViewGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <View
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="20dp"
-            android:background="#ff00ff" />
-
-        <View
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="20dp"
-            android:background="#0000ff" />
-
-        <View
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#00ff00" />
-
-        <View
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="20dp"
-            android:background="#ff0000" />
-
-    </sun.mview.viewgroup.TestViewGroup>
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import android.view.View;
  * Created by Yaozong on 2016/10/5.
  */
 
-public class LightTest extends View {
+public class ProgressLight extends View {
     /*工具*/
     private Paint paint;
 
@@ -24,16 +24,16 @@ public class LightTest extends View {
     private float center_y;
 
 
-    public LightTest(Context context) {
+    public ProgressLight(Context context) {
         this(context, null);
     }
 
-    public LightTest(Context context, AttributeSet attrs) {
+    public ProgressLight(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
 
     }
 
-    public LightTest(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ProgressLight(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         paint = new Paint();
 //        px = ConvertUtils.dp2px(context, 100f);
