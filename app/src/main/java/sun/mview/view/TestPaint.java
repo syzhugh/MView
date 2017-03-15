@@ -68,10 +68,10 @@ public class TestPaint extends View {
 //        drawArc(canvas);
 
 //        drawPath(canvas);
+
 //        drawImg(canvas);
 //        drawText(canvas);
     }
-
 
     /*paint属性配置*/
     private void setPaint(Canvas canvas) {

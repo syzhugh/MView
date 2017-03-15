@@ -8,7 +8,13 @@
     <sun.mview.view.TestCanvas
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         />
+
+    <sun.mview.view.TestBezier
+        android:id="@+id/main_bezier"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <sun.mview.view.TestText
         android:layout_width="match_parent"

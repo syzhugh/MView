@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import sun.mview.R;
+import sun.mview.view.TestBezier;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        TestBezier bezier = (TestBezier) findViewById(R.id.main_bezier);
+        bezier.startAnim();
     }
 
     @OnClick({R.id.main_paint, R.id.main_view, R.id.main_viewgroup})
