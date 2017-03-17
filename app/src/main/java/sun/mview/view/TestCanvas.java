@@ -17,6 +17,9 @@ import android.view.View;
 public class TestCanvas extends View {
     private Paint mPaint;
 
+
+    private int baseX, baseY;
+
     public TestCanvas(Context context) {
         this(context, null);
     }
@@ -27,6 +30,7 @@ public class TestCanvas extends View {
 
     public TestCanvas(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
         getAttrs(context, attrs, defStyleAttr);//getAttrs
         init();//init
@@ -53,27 +57,57 @@ public class TestCanvas extends View {
         mPaint = new Paint();
     }
 
-    private int baseX, baseY;
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        int debug = 2;
+        switch (debug) {
+            case 1:
+                test1(canvas);
+                break;
+            case 2:
+                test2(canvas);
+                break;
+        }
+    }
+
+
+    //状态保存
+    private void test1(Canvas canvas) {
         canvas.save();
         transform(canvas);
         canvas.restore();
-
 
         canvas.save();
         clip(canvas);
         canvas.restore();
 
-        saveAndRestore(canvas);
-    }
-
-    private void saveAndRestore(Canvas canvas) {
         canvas.drawColor(Color.parseColor("#9900ffff"));
     }
+
+    //flag状态保存
+    private void test2(Canvas canvas) {
+        mPaint.reset();
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setColor(Color.RED);
+
+        canvas.drawColor(Color.YELLOW);
+
+        mPaint.setColor(Color.RED);
+        canvas.drawRect(200, 200, 400, 400, mPaint);
+
+        canvas.save();
+        canvas.rotate(15);
+        mPaint.setColor(Color.parseColor("#3300ff00"));
+        canvas.drawRect(400, 400, 600, 600, mPaint);
+        canvas.restore();
+
+        mPaint.setColor(Color.BLUE);
+        canvas.drawRect(600, 400, 800, 600, mPaint);
+
+    }
+
 
     private void clip(Canvas canvas) {
         baseX = 0;
