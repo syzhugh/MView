@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         TestBezier bezier = (TestBezier) findViewById(R.id.main_bezier);
         bezier.startAnim();
+
+        Intent it = new Intent(MainActivity.this, AnimationAct.class);
+        startActivity(it);
     }
 
     @OnClick({R.id.main_paint, R.id.main_view, R.id.main_viewgroup})

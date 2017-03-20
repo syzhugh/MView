@@ -19,6 +19,8 @@
         <activity android:name=".activity.ViewGroupAct"/>
         <activity android:name=".activity.PaintAct">
         </activity>
+        <activity android:name=".activity.AnimationAct">
+        </activity>
     </application>
 
 </manifest>
